@@ -20,7 +20,7 @@ export default function Projects() {
       description:
         "A modern developer portfolio built with Next.js, featuring responsive design, smooth animations, and optimized performance.",
       technologies: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
-      liveUrl: "https://yourportfolio.vercel.app/",
+      liveUrl: "https://portfolio-app-sigma-swart-49.vercel.app/",
       githubUrl: "https://github.com/DevenPatel19/portfolio",
       image: "/project-screenshots/portfolio.png",
     },
