@@ -25,7 +25,7 @@ export default function Projects() {
       image: "/project-screenshots/portfolio.png",
     },
     {
-      title: "Coping Skills Tracker App",
+      title: "Coping Skills Tracker App Demo",
       description:
         "A Demo platform for people to create and cast Magic/Coping skills in hopes of developing emotional regulation.",
       technologies: ["Vite", "Tailwind CSS", "daisyUI"],
