@@ -32,6 +32,15 @@ const projects = [
     githubUrl: "https://github.com/DevenPatel19/WeatherApp",
     image: "/project-screenshots/weather-app.png",
   },
+  {
+      title: "Coping Skills Tracker App Demo",
+      description:
+        "A Demo platform for people to create and cast Magic/Coping skills in hopes of developing emotional regulation.",
+      technologies: ["Vite", "Tailwind CSS", "daisyUI"],
+      liveUrl: "https://www.loom.com/share/43ee586df1ef43d8ac9518b307bf1619?sid=d32a6f25-d563-4e5d-acae-c69cec4ce53a/",
+      githubUrl: "https://github.com/DevenPatel19/therawizard",
+      image: "/project-screenshots/thera-wizard.png",
+  },
 ];
 
 const techColors: { [key: string]: string } = {
