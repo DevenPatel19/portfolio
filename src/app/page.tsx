@@ -1,3 +1,4 @@
+// src\app\page.tsx
 import Hero  from '@/app/components/Hero'
 import About from '@/app/components/About'
 import Projects from '@/app/components/Projects'
