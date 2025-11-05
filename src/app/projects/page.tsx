@@ -56,7 +56,7 @@ const projects = [
   },
   {
     title: "Weather Forecast App",
-    description: "Dynamic weather application that fetches live data using the OpenWeatherMap API and displays responsive forecasts with intuitive icons and detailed information.",
+    description: "Dynamic weather application that fetches live data using the OpenWeatherMap API and displays responsive forecasts with intuitive icons and detailed information.Note: This demo app is run locally without production deployment.",
     technologies: ["React", "OpenWeatherMap API", "CSS Grid", "Axios"],
     liveUrl: "https://weatherpro-demo.vercel.app/",
     githubUrl: "https://github.com/DevenPatel19/WeatherApp",
