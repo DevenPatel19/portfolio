@@ -1,6 +1,6 @@
-// src/app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Navbar from "./components/Navbar";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     siteName: 'Deven Patel Portfolio',
     images: [
       {
-        url: '/og-image.png', // We'll create this next
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Deven Patel - Full-Stack Developer',
@@ -72,12 +72,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-<head>
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-</head>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
