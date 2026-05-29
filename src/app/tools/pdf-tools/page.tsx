@@ -17,32 +17,31 @@ export default function PdfToolsPage() {
   };
 
   const mergePDFs = async () => {
-    if (files.length < 2) {
-      alert("Please select at least 2 PDF files to merge.");
-      return;
+  if (files.length < 2) {
+    alert("Please select at least 2 PDF files to merge.");
+    return;
+  }
+  setLoading(true);
+  try {
+    const mergedPdf = await PDFDocument.create();
+    for (const file of files) {
+      const arrayBuffer = await file.arrayBuffer();
+      const pdf = await PDFDocument.load(arrayBuffer);
+      const pages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
+      pages.forEach((page) => mergedPdf.addPage(page));
     }
-    setLoading(true);
-    try {
-      const mergedPdf = await PDFDocument.create();
-      for (const file of files) {
-        const arrayBuffer = await file.arrayBuffer();
-        const pdf = await PDFDocument.load(arrayBuffer);
-        const pages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
-        pages.forEach((page) => mergedPdf.addPage(page));
-      }
-      const pdfBytes = await mergedPdf.save();
-      const blob = new Blob([pdfBytes], { type: "application/pdf" });
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = "merged.pdf";
-      link.click();
-      URL.revokeObjectURL(link.href);
-    } catch (err) {
-      alert("Error merging PDFs: " + (err as Error).message);
-    }
-    setLoading(false);
-  };
-
+    const pdfBytes = await mergedPdf.save();
+    const blob = new Blob([new Uint8Array(pdfBytes)], { type: "application/pdf" }); // ✅ Fixed
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "merged.pdf";
+    link.click();
+    URL.revokeObjectURL(link.href);
+  } catch (err) {
+    alert("Error merging PDFs: " + (err as Error).message);
+  }
+  setLoading(false);
+};
   const splitPDF = async () => {
     if (files.length !== 1) {
       alert("Please select exactly 1 PDF file to split.");
@@ -64,7 +63,7 @@ export default function PdfToolsPage() {
       const firstPages = await firstDoc.copyPages(pdf, pdf.getPageIndices().slice(0, splitPageNum));
       firstPages.forEach((p) => firstDoc.addPage(p));
       const firstBytes = await firstDoc.save();
-      const firstBlob = new Blob([firstBytes], { type: "application/pdf" });
+      const firstBlob = new Blob([new Uint8Array(firstBytes)], { type: "application/pdf" }); // ✅ Fixed
       const firstLink = document.createElement("a");
       firstLink.href = URL.createObjectURL(firstBlob);
       firstLink.download = `split_part1_pages1-${splitPageNum}.pdf`;
@@ -75,7 +74,7 @@ export default function PdfToolsPage() {
       const secondPages = await secondDoc.copyPages(pdf, pdf.getPageIndices().slice(splitPageNum));
       secondPages.forEach((p) => secondDoc.addPage(p));
       const secondBytes = await secondDoc.save();
-      const secondBlob = new Blob([secondBytes], { type: "application/pdf" });
+      const secondBlob = new Blob([new Uint8Array(secondBytes)], { type: "application/pdf" }); // ✅ Fixed
       const secondLink = document.createElement("a");
       secondLink.href = URL.createObjectURL(secondBlob);
       secondLink.download = `split_part2_pages${splitPageNum+1}-${totalPages}.pdf`;
@@ -100,7 +99,7 @@ export default function PdfToolsPage() {
       const pdf = await PDFDocument.load(arrayBuffer);
       // Re-saving with default options often reduces size
       const compressedBytes = await pdf.save();
-      const blob = new Blob([compressedBytes], { type: "application/pdf" });
+       const blob = new Blob([new Uint8Array(compressedBytes)], { type: "application/pdf" }); // ✅ Fixed
       const link = document.createElement("a");
       link.href = URL.createObjectURL(blob);
       link.download = "compressed.pdf";
