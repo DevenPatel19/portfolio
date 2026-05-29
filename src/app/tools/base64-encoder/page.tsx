@@ -11,23 +11,23 @@ export default function Base64Page() {
   const [output, setOutput] = useState("");
   const [copied, setCopied] = useState(false);
 
-  const encode = () => {
-    try {
-      const encoded = btoa(unescape(encodeURIComponent(input)));
-      setOutput(encoded);
-    } catch (e) {
-      setOutput("Error encoding");
-    }
-  };
+const encode = () => {
+  try {
+    const encoded = btoa(unescape(encodeURIComponent(input)));
+    setOutput(encoded);
+  } catch {
+    setOutput("Error encoding");
+  }
+};
 
-  const decode = () => {
-    try {
-      const decoded = decodeURIComponent(escape(atob(input)));
-      setOutput(decoded);
-    } catch (e) {
-      setOutput("Error decoding - invalid Base64");
-    }
-  };
+const decode = () => {
+  try {
+    const decoded = decodeURIComponent(escape(atob(input)));
+    setOutput(decoded);
+  } catch {
+    setOutput("Error decoding - invalid Base64");
+  }
+};
 
   const execute = () => {
     if (mode === "encode") encode();

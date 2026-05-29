@@ -27,8 +27,8 @@ export default function RegexTesterPage() {
       }
 
       setMatches(results);
-    } catch (e) {
-      setError((e as Error).message);
+    } catch (_e) {
+      setError((_e as Error).message);
       setMatches([]);
     }
   };
@@ -76,9 +76,7 @@ export default function RegexTesterPage() {
             {["g", "i", "m", "s"].map((flag) => (
               <button
                 key={flag}
-                onClick={() => {
-                  toggleFlag(flag);
-                }}
+                onClick={() => toggleFlag(flag)}
                 className={`px-3 py-2 rounded-lg text-sm font-medium border transition-all ${
                   flags.includes(flag)
                     ? "bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 border-neutral-900 dark:border-white"
@@ -107,13 +105,21 @@ export default function RegexTesterPage() {
           />
         </div>
 
-        {/* Test Button */}
-        <button
-          onClick={test}
-          className="w-full py-3 rounded-lg bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 text-sm font-medium hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors"
-        >
-          Test Pattern
-        </button>
+        {/* Action Buttons */}
+        <div className="flex gap-3">
+          <button
+            onClick={test}
+            className="flex-1 py-3 rounded-lg bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 text-sm font-medium hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors"
+          >
+            Test Pattern
+          </button>
+          <button
+            onClick={clear}
+            className="flex-1 py-3 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 text-sm font-medium hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+          >
+            Clear
+          </button>
+        </div>
 
         {/* Error or Results */}
         {error ? (
