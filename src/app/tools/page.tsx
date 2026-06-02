@@ -48,6 +48,44 @@ const tools = [
   { href: "/tools/password-strength", icon: "🔒", name: "Password Strength Tester", description: "Estimate entropy and show feedback.", tag: "Security" },
   { href: "/tools/emoji-picker", icon: "😊", name: "Emoji Picker", description: "Search and copy emojis.", tag: "Fun" },
   { href: "/tools/stopwatch", icon: "⏱️", name: "Stopwatch / Timer", description: "Simple countdown timer.", tag: "Utility" },
+  // Math & Geometry
+  { href: "/tools/quadratic-solver", icon: "📐", name: "Quadratic Solver", description: "Solve ax²+bx+c=0", tag: "Math" },
+  { href: "/tools/prime-checker", icon: "🔢", name: "Prime Checker", description: "Check if a number is prime", tag: "Math" },
+  { href: "/tools/fraction-simplifier", icon: "➗", name: "Fraction Simplifier", description: "Reduce fractions", tag: "Math" },
+  { href: "/tools/percentage-calculator", icon: "%", name: "Percentage Calculator", description: "Various percentage calculations", tag: "Math" },
+  { href: "/tools/loan-calculator", icon: "🏦", name: "Loan Calculator", description: "Monthly mortgage payments", tag: "Math" },
+  { href: "/tools/fibonacci", icon: "🌀", name: "Fibonacci Generator", description: "First N Fibonacci numbers", tag: "Math" },
+  // Date & Time
+  { href: "/tools/date-difference", icon: "📅", name: "Date Difference", description: "Days between dates", tag: "Date" },
+  { href: "/tools/age-calculator", icon: "🎂", name: "Age Calculator", description: "Exact age from birthdate", tag: "Date" },
+  { href: "/tools/countdown-date", icon: "⏳", name: "Countdown to Date", description: "Live countdown timer", tag: "Date" },
+  { href: "/tools/world-clock", icon: "🌍", name: "World Clock", description: "Multiple time zones", tag: "Date" },
+  // Advanced Color
+  { href: "/tools/contrast-checker", icon: "👁️", name: "WCAG Contrast Checker", description: "Accessible color contrast", tag: "Design" },
+  { href: "/tools/color-mixer", icon: "🎨", name: "Color Mixer", description: "Blend two colors", tag: "Design" },
+  { href: "/tools/palette-from-image", icon: "🖼️", name: "Palette from Image", description: "Extract dominant colors", tag: "Design" },
+  { href: "/tools/color-blind-simulator", icon: "👓", name: "Color Blind Simulator", description: "Protanopia simulation", tag: "Design" },
+  // Advanced Text
+  { href: "/tools/frequency-counter", icon: "📊", name: "Word Frequency Counter", description: "Count word occurrences", tag: "Code" },
+  { href: "/tools/palindrome-checker", icon: "🔄", name: "Palindrome Checker", description: "Check palindromic strings", tag: "Code" },
+  { href: "/tools/text-reverser", icon: "🔃", name: "Text Reverser/Sorter", description: "Reverse or sort lines", tag: "Code" },
+  { href: "/tools/remove-duplicate-lines", icon: "🗑️", name: "Remove Duplicate Lines", description: "Deduplicate text", tag: "Code" },
+  // Data & File
+  { href: "/tools/xml-to-json", icon: "🗂️", name: "XML to JSON", description: "Convert XML to JSON", tag: "Code" },
+  { href: "/tools/file-to-base64", icon: "📁", name: "File to Base64", description: "Encode file to data URL", tag: "Files" },
+  { href: "/tools/exif-reader", icon: "📷", name: "EXIF Reader", description: "Image metadata", tag: "Files" },
+  { href: "/tools/audio-waveform", icon: "🎵", name: "Audio Waveform", description: "Visualize audio", tag: "Files" },
+  // Random & Fun
+  { href: "/tools/random-item-picker", icon: "🎲", name: "Random Item Picker", description: "Pick from a list", tag: "Fun" },
+  { href: "/tools/coin-flip", icon: "🪙", name: "Coin Flip", description: "Virtual coin toss", tag: "Fun" },
+  { href: "/tools/random-color", icon: "🎨", name: "Random Color", description: "Random hex generator", tag: "Fun" },
+  // CSS Helpers
+  { href: "/tools/cubic-bezier", icon: "📈", name: "Cubic Bezier Editor", description: "Custom easing curves", tag: "Design" },
+  { href: "/tools/transform-generator", icon: "🔄", name: "CSS Transform Generator", description: "Combine transforms", tag: "Design" },
+  { href: "/tools/filter-generator", icon: "🎭", name: "CSS Filter Generator", description: "Build filter effects", tag: "Design" },
+  // Performance & Diagnostics
+  { href: "/tools/performance-check", icon: "⚡", name: "Page Performance", description: "Load metrics", tag: "Dev" },
+  { href: "/tools/browser-info", icon: "🖥️", name: "Browser Info", description: "Device details", tag: "Dev" },
 ];
 
 const tagColors: Record<string, string> = {
@@ -58,6 +96,8 @@ const tagColors: Record<string, string> = {
   Design: "bg-rose-50 dark:bg-rose-950 text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-800",
   Dev: "bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800",
   Fun: "bg-fuchsia-50 dark:bg-fuchsia-950 text-fuchsia-700 dark:text-fuchsia-300 border-fuchsia-200 dark:border-fuchsia-800",
+  Math: "bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-800",
+  Date: "bg-sky-50 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800",
 };
 
 const allTags = Array.from(new Set(tools.map((t) => t.tag))).sort();
