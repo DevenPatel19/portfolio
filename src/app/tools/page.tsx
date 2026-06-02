@@ -132,7 +132,8 @@ export default function ToolsPage() {
           <p className="text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-500 mb-3">Free browser tools</p>
           <h1 className="text-4xl font-semibold tracking-tight mb-3 text-neutral-900 dark:text-white">Toolbox</h1>
           <p className="text-neutral-600 dark:text-neutral-400 max-w-md">
-            A collection of useful utilities that run entirely in your browser — no sign-up, no uploads to any server.
+            A collection of useful utilities that run entirely in your browser - no sign-up or no uploads to any server, safe and client side only.
+            (Basically I got tired of looking online for tools and started making and collecting them.)
           </p>
         </div>
 
